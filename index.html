@@ -6,11 +6,33 @@
 
     <script src="https://unpkg.com/react@16.8.3/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.8.3/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.3.4/babel.js"></script>
   </head>
 
   <body>
     <div id="my-awesome-root"></div>
 
-    <script src="src/index.js"></script>
+    <script type="text/babel">
+      const e = React.createElement;
+      class LikeButton extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { liked: false };
+        }
+        render() {
+          if (this.state.liked) {
+            return "you liked it!";
+          }
+          return (
+            <button onClick={() => this.setState({ liked: true })}>
+              Like button!
+            </button>
+          );
+        }
+      }
+
+      const root = document.querySelector("#my-awesome-root");
+      ReactDOM.render(e(LikeButton), root);
+    </script>
   </body>
 </html>
