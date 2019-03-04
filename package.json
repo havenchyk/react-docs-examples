@@ -5,12 +5,10 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "transpile": "NODE_ENV=development babel src --out-dir ."
   },
   "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
-  },
+  "devDependencies": {},
   "keywords": []
 }
